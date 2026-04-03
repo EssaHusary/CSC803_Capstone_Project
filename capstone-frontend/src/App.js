@@ -28,7 +28,7 @@
 import { useState } from "react";
 
 const BACKEND_URL =
-  "https://chatbot.loca.lt/chat";
+  "https://cowardly-bobcat-5.loca.lt/chat";
 
 function App() {
   const [input, setInput] = useState("");
