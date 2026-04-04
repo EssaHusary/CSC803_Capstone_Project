@@ -1,3 +1,7 @@
+:root {
+    --hg-size: 145px;
+}
+
 @font-face {
     font-family: 'ChalkFont';
     src: url('../assets/font/ChalkFont.otf') format('opentype');
@@ -41,8 +45,8 @@ body, html, #root {
 }
 
 .thinking-icon {
-    width: 60px;
-    height: 60px;
+    width: var(--hg-size);
+    height: var(--hg-size);
     color: #fff;
     filter: blur(0.2px) brightness(1.2);
     opacity: 0.9;
@@ -57,10 +61,10 @@ body, html, #root {
 
 .stars {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 40px;
-    height: 40px;
+    top: calc(var(--hg-size) * 0.17);
+    left: calc(var(--hg-size) * 0.17);
+    width: calc(var(--hg-size) * 0.66);
+    height: calc(var(--hg-size) * 0.66);
     pointer-events: none;
     overflow: hidden;
     color: #fff;
@@ -70,7 +74,7 @@ body, html, #root {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 6px;
+    font-size: calc(var(--hg-size) * 0.10);
     opacity: 0;
     animation: fall 1.8s linear infinite,
                star-visibility 5s infinite ease-in-out;
@@ -113,46 +117,57 @@ body, html, #root {
     background: transparent;
 }
 
+.chat-container:empty,
+.chat-container:has(.intro-message) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .intro-message {
-    display: block;
-    margin: 40px auto 0 auto;
+    font-size: clamp(2.8rem, 4vw, 4.6rem);
     text-align: center;
-    font-size: 3rem;
     max-width: 780px;
     color: #f8fbf6;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .input-bar-wrapper {
     position: relative;
 }
 
-.globe {
+.globe,
+.chalk {
     position: absolute;
-    bottom: 90%;
-    left: 20px;
-    width: 280px;
-    height: 280px;
-    background: url('../assets/img/globe-2831881_1280.png') center/cover no-repeat;
     filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4));
+    opacity: 1;
+}
+
+.globe {
+    bottom: 95%;
+    left: 2vw;
+    width: 19.5vw;
+    height: 19.5vw;
+    background: url('../assets/img/globe-2831881_1280.png') center/cover no-repeat;
     z-index: 2;
-    opacity: 0.6;
 }
 
 .chalk {
-    position: absolute;
-    bottom: 82%;
-    right: 40px;
-    width: 100px;
-    height: 20px;
+    bottom: 90%;
+    right: 3vw;
+    width: 10vw;
+    height: 2vw;
     background: url('../assets/img/chalk.png') center/cover no-repeat;
-    filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4));
-    z-index: 10;
+    z-index: 4;
 }
 
 .input-bar {
     position: relative;
-    background: rgba(29, 84, 38, 0.92), url('../assets/img/messrro-Uo7M4171Hsg-unsplash.jpg') center/cover no-repeat;
-    padding: 18px;
+    background: url('../assets/img/messrro-Uo7M4171Hsg-unsplash.jpg') center/cover no-repeat,
+        rgba(29, 84, 38, 0.92);
+    padding: clamp(10px, 1.5vw, 18px);
     display: flex;
     gap: 14px;
     align-items: center;
@@ -163,8 +178,8 @@ body, html, #root {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.05);
-    mix-blend-mode: normal;
+    background: rgba(202, 117, 31, 0.5);
+    mix-blend-mode: multiply;
     pointer-events: none;
     z-index: 0;
 }
@@ -177,43 +192,51 @@ body, html, #root {
 
 .input-bar input {
     flex: 1;
-    padding: 20px 22px;
+    padding: clamp(12px, 1.8vw, 20px) clamp(14px, 2vw, 22px);
     border-radius: 10px;
     overflow: hidden;
-    font-size: 2.2rem;
-    min-height: 70px;
+    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    min-height: clamp(40px, 6vw, 70px);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    /* background: url('../assets/img/messrro-Uo7M4171Hsg-unsplash.jpg') center/cover no-repeat; */
     color: #111;
 }
 
+.input-bar input:disabled::placeholder {
+    color: transparent;
+}
+
 .input-bar button {
-    padding: 20px 30px;
+    padding: clamp(12px, 1.8vw, 20px) clamp(18px, 2.5vw, 30px);
     border-radius: 10px;
-    font-size: 2.2rem;
+    font-size: clamp(1.2rem, 2vw, 2.2rem);
     cursor: pointer;
     background: #79c267;
     color: #ffffff;
     border: none;
 }
 
+.input-bar button:hover {
+    background: #5e9f52;
+}
 
 .message-line {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
+    gap: 35px;
+    margin-bottom: 35px;
 }
 
 .message-user,
 .message-bot {
+    position: relative;
     max-width: 80%;
-    padding: 60px 72px;
+    padding: clamp(20px, 4vw, 60px) clamp(24px, 5vw, 72px);
     border-radius: 24px;
-    font-size: 7.2rem;
+    font-size: clamp(1.6rem, 3vw, 7.2rem);
     line-height: 1.5;
     white-space: pre-wrap;
     word-break: break-word;
+    z-index: 3;
 }
 
 .message-user {
@@ -226,7 +249,8 @@ body, html, #root {
 
 .message-bot {
     align-self: flex-start;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(1.5px);
     color: #f7fafc;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 24px;

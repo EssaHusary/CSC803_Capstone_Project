@@ -3,7 +3,6 @@ import "./chalkboard.css";
 
 import MessageLine from "./MessageLine";
 import InputBar from "./InputBar";
-import Hourglass from "./Hourglass";
 
 export default function Chalkboard({
     messages = [],
@@ -15,9 +14,15 @@ export default function Chalkboard({
     const chatContainerRef = useRef(null);
 
     useEffect(() => {
-        if (chatContainerRef.current) {
-            chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
-        }
+        const el = chatContainerRef.current;
+        if (!el) return;
+
+        requestAnimationFrame(() => {
+            el.scrollTo({
+                top: el.scrollHeight,
+                behavior: "smooth"
+            });
+        });
     }, [messages]);
 
     return (
@@ -32,12 +37,14 @@ export default function Chalkboard({
                     )}
 
                     {messages.map((m, i) => (
-                        <MessageLine key={m.id ?? i} user={m?.user ?? ""} bot={m?.bot ?? ""} />
+                        <MessageLine
+                            key={m.id ?? i}
+                            user={m?.user ?? ""}
+                            bot={m?.bot ?? ""}
+                            loading={loading && i === messages.length - 1} // only last bubble loads
+                        />
                     ))}
                 </div>
-
-                {/* Hourglass animation (used when the chatbot is thinking) */}
-                {loading && <Hourglass />}
 
                 <div className="input-bar-wrapper">
                     {/* Decorative elements */}
