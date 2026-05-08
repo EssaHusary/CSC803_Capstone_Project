@@ -49,6 +49,7 @@ export default function Chalkboard({
                 <div className="input-bar-wrapper">
                     {/* Decorative elements */}
                     <div className="globe"></div>
+                    <div className="apple"></div>
                     <div className="chalk"></div>
 
                     <InputBar

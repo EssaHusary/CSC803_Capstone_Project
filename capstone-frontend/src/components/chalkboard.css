@@ -1,3 +1,12 @@
+/*
+    Credit to the authors for each img below:
+    MeSSrro - wood texture photo (Unsplash)
+    Resource Boy - chalkboard photo (Unsplash)
+    Alexa_Fotos - globe stand (Pixabay)
+    PurePNG - red apple
+    Aleyna Çatak - chalk (originally from a photo of a blackboard on Unsplash)
+*/
+
 :root {
     --hg-size: 145px;
 }
@@ -139,6 +148,7 @@ body, html, #root {
 }
 
 .globe,
+.apple,
 .chalk {
     position: absolute;
     filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4));
@@ -151,6 +161,15 @@ body, html, #root {
     width: 19.5vw;
     height: 19.5vw;
     background: url('../assets/img/globe-2831881_1280.png') center/cover no-repeat;
+    z-index: 2;
+}
+
+.apple {
+    bottom: 93%;
+    left: 15vw;
+    width: 6.5vw;
+    height: 7vw;
+    background: url('../assets/img/purepng.com-red-appleappleapplesfruitsweet-1701527180174lrnig-930x1024.png') center/cover no-repeat;
     z-index: 2;
 }
 
