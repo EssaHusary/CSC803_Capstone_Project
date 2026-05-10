@@ -1,11 +1,11 @@
 # CSC803_Capstone_Project
 Our capstone project, where we have created a chatbot that provides historical facts and validates the accuracy of those facts via backend RAG and LLM-as-a-judge techniques.
 
-We will provide instructions for how to run our project. We do recommend using VSCode, but you are free to use whatever editor you want. Let's start with the backend, followed by the frontend. Here is how to run our chatbot project:
+We will provide instructions for how to run our project. We do recommend using VSCode, but you are free to use whatever editor you please. We also require at least 10 GB of storage space in your Google Drive, as two large language models will be loaded onto the Colab GPU, and we will store them in a place in your Google Drive for future GPU onloading. Let's start with the backend, followed by the frontend. Here is how to run our chatbot project:
 
 1) BACKEND instructions:
-- First, run all of the cells in the notebook. We require that you mount the notebook to your Google Drive to be able to download and use the two large language models Llama and Qwen. So you will be prompted to do so. Please grant Google access.
-- Second, patiently wait until all of the cells have run, which may take a bit of time, as two LLMs will be loaded onto the GPU.
+- First, run all of the cells in the notebook. Please mount the notebook to your Google Drive so you can download and use the two large language models, Llama and Qwen. You will be prompted to grant Google access, so please do so. 
+- Second, patiently wait until all of the cells have run, which may take a bit of time, as two LLMs will be loaded onto the GPU. This is why we require 10 GB of space.
 - When the second-to-last cell is run, a URL will be generated, shown here: <img width="766" height="105" alt="image" src="https://github.com/user-attachments/assets/f9050505-14b3-40f4-94ed-29c14a5e3fb4" />
 - Click on this URL. You will be directed to a page that looks like this: <img width="1279" height="601" alt="image" src="https://github.com/user-attachments/assets/98680ee3-cb19-4ae9-8f9b-f62711875974" />
 - Simply copy and paste the IP address provided here: <img width="380" height="145" alt="image" src="https://github.com/user-attachments/assets/6fec52d3-1b15-4cf7-ad72-a7b22fca3b92" />
