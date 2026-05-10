@@ -26,6 +26,6 @@ We will provide instructions for how to run our project. We do recommend using V
 - Even if you don't see these specific messages, but just see this: <img width="748" height="107" alt="image" src="https://github.com/user-attachments/assets/629f1fb9-617f-4e86-a6c4-e8fb69ca8799" />
 - That's ok, you are good to go!
 - All is well!
-- If I ask the chatbot a question, you will see something like this: <img width="1279" height="735" alt="image" src="https://github.com/user-attachments/assets/a538d9f8-c3db-4da5-b8b0-bbe6404ed502" />
-- In the backend, the second-to-last cell will look like this: <img width="968" height="127" alt="image" src="https://github.com/user-attachments/assets/e5428d47-b9eb-4a48-9444-d7bd705f0731" />
+- If I ask the chatbot a question, you will see something like this: <img width="1279" height="734" alt="image" src="https://github.com/user-attachments/assets/936698e7-1e90-46e5-88d5-22b976b9650b" />
+- In the backend, the second-to-last cell will look like this: <img width="1172" height="175" alt="image" src="https://github.com/user-attachments/assets/bdbedbe9-3eb9-47d9-8f84-faa605c62168" />
 - HAVE FUN!!!!
