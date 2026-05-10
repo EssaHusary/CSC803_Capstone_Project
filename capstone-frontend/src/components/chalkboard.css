@@ -1,0 +1,277 @@
+/*
+    Credit to the authors for each img below:
+    MeSSrro - wood texture photo (Unsplash)
+    Resource Boy - chalkboard photo (Unsplash)
+    Alexa_Fotos - globe stand (Pixabay)
+    PurePNG - red apple
+    Aleyna Çatak - chalk (originally from a photo of a blackboard on Unsplash)
+*/
+
+:root {
+    --hg-size: 145px;
+}
+
+@font-face {
+    font-family: 'ChalkFont';
+    src: url('../assets/font/ChalkFont.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, html, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'ChalkFont', sans-serif;
+    background: #a0abc3;
+    color: #0f2f18;
+}
+
+.chalkboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.chat-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(rgba(7, 23, 11, 0.45), rgba(12, 42, 22, 0.75)), url('../assets/img/resource-boy-12QniyLkke4-unsplash.jpg') center/cover no-repeat;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.hourglass-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.thinking-icon {
+    width: var(--hg-size);
+    height: var(--hg-size);
+    color: #fff;
+    filter: blur(0.2px) brightness(1.2);
+    opacity: 0.9;
+    animation: flip 5s infinite ease-in-out;
+}
+
+@keyframes flip {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(180deg); }
+    100% { transform: rotate(180deg); }
+}
+
+.stars {
+    position: absolute;
+    top: calc(var(--hg-size) * 0.17);
+    left: calc(var(--hg-size) * 0.17);
+    width: calc(var(--hg-size) * 0.66);
+    height: calc(var(--hg-size) * 0.66);
+    pointer-events: none;
+    overflow: hidden;
+    color: #fff;
+}
+
+.stars span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: calc(var(--hg-size) * 0.10);
+    opacity: 0;
+    animation: fall 1.8s linear infinite,
+               star-visibility 5s infinite ease-in-out;
+}
+
+.stars span:nth-child(1) { animation-delay: 0s; }
+.stars span:nth-child(2) { animation-delay: 0.2s; }
+.stars span:nth-child(3) { animation-delay: 0.4s; }
+.stars span:nth-child(4) { animation-delay: 1s; }
+
+@keyframes fall {
+    0% {
+        transform: translate(-50%, -10px) rotate(0deg);
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, 35px) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes star-visibility {
+    0% { opacity: 0; }
+    30% { opacity: 0; }
+    31% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.chat-container {
+    z-index: 3;
+    flex: 1;
+    padding: 28px;
+    overflow-y: auto;
+    color: #f7fafc;
+    font-size: 3rem;
+    line-height: 1.4;
+    background: transparent;
+}
+
+.chat-container:empty,
+.chat-container:has(.intro-message) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-message {
+    font-size: clamp(2.8rem, 4vw, 4.6rem);
+    text-align: center;
+    max-width: 780px;
+    color: #f8fbf6;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.input-bar-wrapper {
+    position: relative;
+}
+
+.globe,
+.apple,
+.chalk {
+    position: absolute;
+    filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.4));
+    opacity: 1;
+}
+
+.globe {
+    bottom: 95%;
+    left: 2vw;
+    width: 19.5vw;
+    height: 19.5vw;
+    background: url('../assets/img/globe-2831881_1280.png') center/cover no-repeat;
+    z-index: 2;
+}
+
+.apple {
+    bottom: 93%;
+    left: 15vw;
+    width: 6.5vw;
+    height: 7vw;
+    background: url('../assets/img/purepng.com-red-appleappleapplesfruitsweet-1701527180174lrnig-930x1024.png') center/cover no-repeat;
+    z-index: 2;
+}
+
+.chalk {
+    bottom: 90%;
+    right: 3vw;
+    width: 10vw;
+    height: 2vw;
+    background: url('../assets/img/chalk.png') center/cover no-repeat;
+    z-index: 4;
+}
+
+.input-bar {
+    position: relative;
+    background: url('../assets/img/messrro-Uo7M4171Hsg-unsplash.jpg') center/cover no-repeat,
+        rgba(29, 84, 38, 0.92);
+    padding: clamp(10px, 1.5vw, 18px);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    z-index: 1;
+}
+
+.input-bar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(202, 117, 31, 0.5);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.input-bar input,
+.input-bar button {
+    position: relative;
+    z-index: 1;
+}
+
+.input-bar input {
+    flex: 1;
+    padding: clamp(12px, 1.8vw, 20px) clamp(14px, 2vw, 22px);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    min-height: clamp(40px, 6vw, 70px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #111;
+}
+
+.input-bar input:disabled::placeholder {
+    color: transparent;
+}
+
+.input-bar button {
+    padding: clamp(12px, 1.8vw, 20px) clamp(18px, 2.5vw, 30px);
+    border-radius: 10px;
+    font-size: clamp(1.2rem, 2vw, 2.2rem);
+    cursor: pointer;
+    background: #79c267;
+    color: #ffffff;
+    border: none;
+}
+
+.input-bar button:hover {
+    background: #5e9f52;
+}
+
+.message-line {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.message-user,
+.message-bot {
+    position: relative;
+    max-width: 80%;
+    padding: clamp(20px, 4vw, 60px) clamp(24px, 5vw, 72px);
+    border-radius: 24px;
+    font-size: clamp(1.6rem, 3vw, 7.2rem);
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    z-index: 3;
+}
+
+.message-user {
+    align-self: flex-end;
+    background: #7cc57a;
+    color: #0f2f18;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 24px;
+}
+
+.message-bot {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(1.5px);
+    color: #f7fafc;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 24px;
+}
+
